@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>index</title>
+<style type="text/css">
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  display: block;
+  text-decoration: underline;
+}
+body {
+  height: 100%; /* 因为layer脱离了普通文档流，设置的100%是相对于viewport的 */
+}
+
+h1 {
+  height: 20px;
+  color: yellow;
+}
+
+#layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(./img/modal_bg.jpg);
+  opacity: 0.8;
+  filter:alpha(opacity=80); 
+  -moz-opacity:0.8; 
+  -khtml-opacity: 0.8; 
+}
+#modal {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 888;
+  width: 339px;
+  height: 202px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 10px 0;
+}
+.modal-header {
+  height: 35px;
+  background: url(./img/modal-header_bg.jpg) repeat-x;
+  border-radius: 3px 3px 0 0;
+}
+.modal-header h3 {
+  float: left;
+  width: 214px;
+  height: 35px;
+  font: 14px/32px sans-serif;
+  color: #888;
+  text-indent: -999em; /* must negative */
+  background: url(./img/modal-header_word.png) no-repeat;
+  background-position: 12px center;
+}
+.modal-header-del {
+  float: right;
+  margin-right: 7px;
+  width: 21px;
+  height: 35px;
+  text-indent: -999em;
+  background: url(./img/modal-header-del.png) no-repeat;
+  background-position: center center;
+  cursor: pointer;
+}
+.modal-cnt {
+  margin-top: 25px;
+}
+.modal-cnt h4 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 275px;   /* ps里的字符间距？ */
+  text-align: center;
+  font: 12px/1.5em Arial ;
+  color: #777;
+}
+.modal-cnt-btns {
+  margin-top: 15px;
+  height: 30px;
+}
+.modal-cnt-btns-ok {
+  float: left;
+  margin-left: 74px;
+  width: 89px;
+  height: 28px;
+  background: url(./img/modal-cnt-btns-ok.jpg) no-repeat;
+  box-shadow: 0px 1px 1px 0px #888;
+}
+.modal-cnt-btns-no {
+  float: left;
+  margin-left: 7px;
+  width: 89px;
+  height: 28px;
+  background: url(./img/modal-cnt-btns-no.jpg) no-repeat;
+  box-shadow: 0px 1px 1px 0px #888;
+}
+.modal-check {
+  margin-top: 20px;
+  text-align: center;
+}
+.modal-check label {
+  margin-left: 12px;
+  font: 11px/1.2em Arial;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+<h1>base header</h1>
+
+<div id="layer"></div>
+<div id="modal">
+  <div class="modal-header">
+    <h3>Simple Little Notification Modal</h3>
+    <div class="modal-header-del">
+      delete
+    </div>
+  </div>
+  <div class="modal-cnt">
+    <h4>We have some quality free content and some killer premium themes! Would you like to learn more?</h4>
+    <div class="modal-cnt-btns">
+      <a href="###" class="modal-cnt-btns-ok"></a>
+      <a href="###" class="modal-cnt-btns-no"></a>
+    </div>
+  </div>
+  <div class="modal-check">
+    <input type="checkbox" name="againCheck" id="againCheck" /><label for="againCheck">Please don’t show me this again.</label>
+  </div>
+</div>
+<script type="text/javascript">
+function getStyle(elem,name){
+   if(!elem){
+    console.log('elem dosen\'t exist');
+    return false;
+   }
+   if(elem.style[name]){
+    console.log('elem[style]: ');
+    return elem.style[name];
+   }
+   if(elem.currentStyle){
+    console.log('currentStyle[name]:');
+    return elem.currentStyle[name];
+   }
+   if(document.defaultView){
+    console.log('coStyle[name]:');
+    var coStyle = document.defaultView.getComputedStyle(elem,'');
+    return coStyle[name];
+   }else{
+    return false;
+   }
+}
+
+
+var docHeight = document.documentElement.clientHeight;
+var docWidth = document.documentElement.clientWidth;
+
+var modal = document.getElementById('modal');
+var modalWidth = parseInt(getStyle(modal,'width'));
+var modalHeight = parseInt(getStyle(modal,'height'));
+
+modal.style.position = 'absolute';
+modal.style.left = (docWidth/2-modalWidth/2)+'px';
+modal.style.top = (docHeight/2-modalHeight/2)+'px';
+
+
+console.log('modalWidth: '+modalWidth+" modalHeight: "+modalHeight);
+console.log("docHeight: "+docHeight+" docWidth: "+docWidth);
+
+
+</script>
+</body>
+</html>

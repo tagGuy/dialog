@@ -1,0 +1,101 @@
+/* default customise */
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  display: block;
+  text-decoration: underline;
+}
+
+/* /default customise */
+#layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 887;
+  width: 100%;
+  height: 100%;
+  background: url(../img/modal_bg.jpg);
+  opacity: 0.8;
+  filter:alpha(opacity=80); 
+  -moz-opacity:0.8; 
+  -khtml-opacity: 0.8; 
+}
+#modal {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 888;
+  width: 339px;
+  height: 202px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 10px 0;
+}
+.modal-header {
+  height: 35px;
+  background: url(../img/modal-header_bg.jpg) repeat-x;
+  border-radius: 3px 3px 0 0;
+}
+.modal-header h3 {
+  float: left;
+  width: 214px;
+  height: 35px;
+  font: 14px/32px sans-serif;
+  color: #888;
+  text-indent: -999em; /* must negative */
+  background: url(../img/modal-header_word.png) no-repeat;
+  background-position: 12px center;
+}
+.modal-header-del {
+  float: right;
+  margin-right: 7px;
+  width: 21px;
+  height: 35px;
+  text-indent: -999em;
+  background: url(../img/modal-header-del.png) no-repeat;
+  background-position: center center;
+  cursor: pointer;
+}
+.modal-cnt {
+  margin-top: 25px;
+}
+.modal-cnt h4 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 275px;   /* ps里的字符间距？ */
+  text-align: center;
+  font: 12px/1.5em Arial ;
+  color: #777;
+}
+.modal-cnt-btns {
+  margin-top: 15px;
+  height: 30px;
+}
+.modal-cnt-btns-ok {
+  float: left;
+  margin-left: 74px;
+  width: 89px;
+  height: 28px;
+  background: url(../img/modal-cnt-btns-ok.jpg) no-repeat;
+  box-shadow: 0px 1px 1px 0px #888;
+}
+.modal-cnt-btns-no {
+  float: left;
+  margin-left: 7px;
+  width: 89px;
+  height: 28px;
+  background: url(../img/modal-cnt-btns-no.jpg) no-repeat;
+  box-shadow: 0px 1px 1px 0px #888;
+}
+.modal-check {
+  margin-top: 20px;
+  text-align: center;
+}
+.modal-check label {
+  margin-left: 12px;
+  font: 11px/1.2em Arial;
+  color: #777;
+}
+
