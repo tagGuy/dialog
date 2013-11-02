@@ -76,6 +76,12 @@ define('dialog',['jquery','../css/dialog.css'],function(require,exports,module){
         console.log('document.body.scrollTop: '+document.body.scrollTop);
         console.log('document.documentElement.scrollTop: '+document.documentElement.scrollTop);
         
+        
+        if(/firefox/.test(navigator.userAgent.toLowerCase())){  /* avoid the question due to the way of event fire in ff */ 
+          return;
+        }
+       
+        console.log(navigator.appName);
         modal.animate({
           top: posDim.top + (document.body.scrollTop|| document.documentElement.scrollTop)+'px'   //webbkit//mozilla ie
         },500);
