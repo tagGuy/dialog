@@ -24,8 +24,6 @@ a {
 }
 #modal {
   position: absolute;
-  left: 50px;
-  top: 50px;
   z-index: 888;
   width: 339px;
   height: 202px;
